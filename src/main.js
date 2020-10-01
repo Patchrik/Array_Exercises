@@ -10,7 +10,11 @@ import {
 	getStudentById,
 	getStudentByLastName,
 	getStudentByName,
+	getInstructorOfStudent,
+	getStudentWithMostLangs,
 } from "./findExercises.js";
+
+import { getStudentNames } from "./mapExercises.js";
 
 let fulltimetest = getFullTimeStudents();
 
@@ -52,3 +56,17 @@ console.log(
 	"This should be the student with the full name of Taddy Mason",
 	letStudentFullname
 );
+let StudentsAssignedTeacher = getInstructorOfStudent(3);
+console.log(
+	"This should be the student rick sanchez who is assigned Andy Collins",
+	StudentsAssignedTeacher
+);
+
+let theMostLiterate = getStudentWithMostLangs();
+console.log(
+	"This should be the student rick sanchez who knows the most languages",
+	theMostLiterate
+);
+
+let studentFullNameArr = getStudentNames();
+console.log("This will be an array of students full names", studentFullNameArr);

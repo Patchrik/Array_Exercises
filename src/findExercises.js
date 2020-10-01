@@ -36,7 +36,6 @@ export const getStudentByLastName = (LastName) => {
 // It should NOT be case sensitive
 // Ex: getStudentByName("Summer SMITH")
 export const getStudentByName = (fullName) => {
-	debugger;
 	return students.find(
 		(student) =>
 			fullName.toLowerCase() ===
@@ -47,9 +46,28 @@ export const getStudentByName = (fullName) => {
 // It should accept one integeter parameter named `studentId`
 // It should return the instructor object of the student whose id matches `studentId`
 // Ex: getInstructorOfStudent(4)      // returns Brenda Long
+export const getInstructorOfStudent = (studentId) => {
+	let chosenStudent = students.find((student) => studentId === student.id);
+	let assignedInstructor = instructors.find(
+		(instructor) => chosenStudent.instructorId === instructor.id
+	);
+	return assignedInstructor;
+};
 
 // Export a function called getStudentWithMostLangs
 // It should not accept any parameters
 // It should return the student object who knows the most programming languages
 // Ex: getStudentWithMostLangs()      // returns Rick Sanchez
 // HINT: You may not need the `find` method for this. This is one of the few cases where a `for` loop might be appropriate
+export const getStudentWithMostLangs = () => {
+	debugger;
+	let studentLangCount = 0;
+	let studentWithTheMostKnownLangs;
+	students.forEach((student) => {
+		if (student.languages.length > studentLangCount) {
+			studentLangCount = student.languages.length;
+			studentWithTheMostKnownLangs = student;
+		}
+	});
+	return studentWithTheMostKnownLangs;
+};
