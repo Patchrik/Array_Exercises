@@ -7,24 +7,42 @@ const instructors = useInstructors();
 // It should accept one integer parameter named `id`
 // It should return the student object with the matching ID
 // Ex: getStudentById(1)
+export const getStudentById = (id) => {
+	return students.find((student) => id === student.id);
+};
 
 // Export a function called getInstructorById
 // It should accept one integer parameter named `id`
 // It should return the instructor object with the matching ID
 // Ex: getInstructorById(1)
+export const getInstructorById = (id) => {
+	return instructors.find((instructor) => id === instructor.id);
+};
 
 // Export a function called getStudentByLastName
 // It should accept one string parameter named `lastName`
 // It should return the student object whose last name matches `lastName`
 // It should NOT be case sensitive
 // Ex: getStudentByName("sMiTh")
+export const getStudentByLastName = (LastName) => {
+	return students.find(
+		(student) => LastName.toLowerCase() === student.lastName.toLowerCase()
+	);
+};
 
 // Export a function called getStudentByName
 // It should accept one string parameter named `fullName`
 // It should return the student object whose first and last name match `fullName`
 // It should NOT be case sensitive
 // Ex: getStudentByName("Summer SMITH")
-
+export const getStudentByName = (fullName) => {
+	debugger;
+	return students.find(
+		(student) =>
+			fullName.toLowerCase() ===
+			(student.firstName + " " + student.lastName).toLowerCase()
+	);
+};
 // Export a function called getInstructorOfStudent
 // It should accept one integeter parameter named `studentId`
 // It should return the instructor object of the student whose id matches `studentId`
